@@ -22,16 +22,24 @@ class ValueImmutableTest {
     }
 
     @Test
-    void builder_true_copy_true() {
+    void builder_true() {
         MyCommand1 myCommand11 = ImmutableMyCommand1.builder()
                                                    .aggregateId(UUID.randomUUID())
                                                    .username("bob")
                                                    .build();
-        log.info("my cmd 1.1: {}", myCommand11);
+        log.info("my cmd: {}", myCommand11);
+    }
 
+    @Test
+    void copy_true() {
+        MyCommand1 myCommand11 = ImmutableMyCommand1.builder()
+                                                   .aggregateId(UUID.randomUUID())
+                                                   .username("bob")
+                                                   .build();
         MyCommand1 myCommand12 = ImmutableMyCommand1.copyOf(myCommand11)
-                                                   .withUsername("molly");
+                                                    .withAggregateId(UUID.randomUUID());
         log.info("my cmd 1.1: {}", myCommand12);
+        log.info("my cmd 1.2: {}", myCommand12);
     }
 
     @Value.Immutable(builder = false, copy = false)
