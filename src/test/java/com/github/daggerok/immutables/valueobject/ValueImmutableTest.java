@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.util.UUID;
 
 /**
- *
+ * see: <a href="https://immutables.github.io/generated.html">getting started guide</a>
  */
 @Log4j2
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
